@@ -1,0 +1,40 @@
+<!DOCTYPE html> <!--HTML5 파일을 의미 -->
+<html> <!-- 시작 -->
+<head> <!-- HTML 파일 정보 -->
+<meta charset="UTF-8"> <!-- UTF8로 인코딩 -->
+<title>Form Ex</title>
+</head>
+<body>
+	<form action="FE" method="post"> <!-- 입력 및 요청 템플릿 -->
+	<!-- 이름 입력창, size는 글자 수 -->
+	이름 : <input type="text" name="name" size="10"> <br>
+	아이디 : <input type="text" name="id" size="10"> <br>
+	패스워드 : <input type="password" name="pw" size="10"> <br>
+	취미 : 
+	<input type="checkbox" checked="checked" name="hobby" value="독서"> 독서
+	<input type="checkbox" name="hobby" value="조깅"> 조깅
+	<input type="checkbox" name="hobby" value="수영"> 수영
+	<input type="checkbox" name="hobby" value="낚시"> 낚시 
+	<br>
+	
+	전공 : 
+	<input type="radio" name="major" value="컴퓨터공학과"> 컴퓨터공학과
+	<input type="radio" name="major" value="전자통신과"> 전자통신과
+	<input type="radio" name="major" value="소프트웨어과"> 소프트웨어과
+	<br>
+	
+	<select name="protocol">
+		<option value="http">HTTP</option>
+		<option value="FTP">FTP</option>
+		<option value="SMTP">SMTP</option>
+		<option value="POP">POP</option>
+	</select>
+	<br>
+	<br>
+	
+	<input type="submit" value="전송">
+	<input type="reset" value="초기화">
+	
+	</form>
+</body>
+</html>
