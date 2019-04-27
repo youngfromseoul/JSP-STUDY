@@ -1,4 +1,4 @@
-package com.hykim.init;
+package com.hykim.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ServletInitParam
+ * Servlet implementation class MethodServlet
  */
-//@WebServlet("/ServletInitParam") //URI 맵핑 주소
-public class ServletInitParam extends HttpServlet { //서블릿 클래스 명
+@WebServlet("/MethodServlet")
+public class MethodServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletInitParam() {
+    public MethodServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,30 +28,26 @@ public class ServletInitParam extends HttpServlet { //서블릿 클래스 명
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("do get!!!!!!!!!!!!!");
-		String id = getInitParameter("id");
-		String ip = getInitParameter("ip");
-		String port = getInitParameter("port");
-		String pw = getInitParameter("pw");
-		
-		///response 인코딩 설정 
 		response.setContentType("text/html; charset=utf-8");
-		PrintWriter writer = response.getWriter();
-		writer.println("<html><head></head><body>");
-		writer.println("아이디 : "+id+ "<br>");
-		writer.println("IP : "+ip+ "<br>");
-		writer.println("port : "+port+"<br>");
-		writer.println("</body></html>");
-		writer.close(); // 브라우저에게 출력 완료를 알려줌.
-
+		PrintWriter out = response.getWriter();
+		
+		//태그에는 반드시 변수 = 값 
+		//css의 경우 : 를 사용
+		
+		out.println("<h1> get 방식으로 처리! </h1>");
+		out.println("<br>"
+				+ "<a href = 'javascripthistory.go(-1)'>이전으로</a>");
+		out.close();
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		out.println("<h1> post 방식으로 처리! </h1>");
+		out.close();
 	}
 
 }
