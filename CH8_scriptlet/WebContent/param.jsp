@@ -5,13 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript"></script>
+<script type="text/javascript" src="param.js"></script>
 </head>
 <body>
-	<form method="get" action ="PS" name="frm">
+	<form method="post" action ="PS2" name="frm">
 	아이디 : <input type="text" name="id"> <br>
 	나이 :  <input type="text" name="age"> <br>
-	<input type="submit" value="전송" onclick="check()">
+	<input type="submit" value="전송" onclick="return check()">
 	</form>
 </body>
 </html>

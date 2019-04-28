@@ -2,10 +2,18 @@
  * 
  */
 
-//JS 입니다.
+//데이터 타당성 체크 (data validation check)
 function check() {
 	if (document.frm.id.value=="") {
 		alert("아이디를 입력하세요");
+	document.frm.id.focus();
+	return false;
+	}else if (document.frm.age.value=="") {
+		alert("나이를 입력하세요");
+	document.frm.id.focus();
+	return false;
+	}else if (isNaN(document.frm.age.value)) {
+		alert("숫자로 입력하세요");
 	document.frm.id.focus();
 	return false;
 	}else {
