@@ -29,7 +29,7 @@ private static final long serialVersionUID = 1L;
 
     // oracle driver
     String driver = "oracle.jdbc.driver.OracleDriver";   // 1. DB 접속을 위한 드라이버 명칭
-    String url = "jdbc:oracle:thin:@localhost:49161:xe";  // 1. DB 접속을 위한 시스템 명칭    
+    String url = "jdbc:oracle:thin:@localhost:1521:xe";  // 1. DB 접속을 위한 시스템 명칭    
     String uid ="system"; // 1. DB 접속을 위한 계정
     String upw="oracle"; 
     /**
@@ -60,9 +60,8 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			phone3 = request.getParameter("phone3");
 			gender = request.getParameter("gender");	
 			System.out.println("name = "+ name);	
-			String query = " insert  into membership2 (id, pw, name, phone1,phone2, phone3)        "
-					+	 "    values ( ' "+id+" ',   ' "+pw+" ', ' " +name+" ',  ' "
-					+	phone1+" ' ,  ' "+phone2+"  ' ,  '  "+phone3+" '  ) "; 
+			String query = "insert  into membership2 (id, pw, name, phone1,phone2, phone3, gender)        "
+					+	 "values ('"+id+"', '"+pw+"', '"+name+"', '"+phone1+"' , '"+phone2+"' , '"+phone3+"', '"+gender+"')"; 
 		try {
 			Class.forName(driver);
 			connection = DriverManager.getConnection(url, uid, upw);

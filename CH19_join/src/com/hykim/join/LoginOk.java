@@ -62,49 +62,52 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 		//3. SQL 실행 결과를 위한 준비 단계
 
 		// #방법2.
-		//   x String query = "select * from membership2";
+		System.out.println("id = " + id + " pw = " + pw );
 		query = "select * from membership2 "
-		+ " where id = ' " +id + " and  pw = ' " + pw + " ' ";
+				+ " where id = '" +id + "' and  pw = '" + pw + "' ";	
+		
 		resultSet = statement.executeQuery(query); // query 문장 실행 결과를 저장 결과  선언(리턴 값)
 		
 		while ( resultSet.next() ) {
 			String tId = resultSet.getString("id"); // 필드(field) 명칭
 			String tPw = resultSet.getString("pw");
-			String tName = resultSet.getString("name");
-		
+			String tName = resultSet.getString("name");				
 			System.out.println("id = " + id + " pw = " + pw );
-			System.out.println("tId = " + tId + "tPw = " + pw );
-		// # 방법1
-		if ( id.equals(tId) && pw.equals(tPw)  ) {	
+			System.out.println("tId = " + tId + " tPw = " + pw );
+			 //# 방법2
 			HttpSession httpSession = request.getSession();
 			httpSession.setAttribute("name", tName);
 			httpSession.setAttribute("id", id);
 			httpSession.setAttribute("pw", pw);	
 			System.out.println("sucess!!!" );
 			response.sendRedirect("loginResult.jsp");	
-		} else {
-			System.out.println("fail!!!" );
-			response.sendRedirect("login.html");	
-		}
-		
-		
-		//	PrintWriter prn = response.getWriter();
-		//	prn.println("id = " + id + "pw = " + pw +  " <br>");	
-		}
-		
-		
-		
-		} catch (Exception e) {
-			System.out.println("Exception ==> " + e);
-		} finally {
-			try {
+			
+			// # 방법1
+	/*	if ( id.equals(tId) && pw.equals(tPw)  ) {		
+				HttpSession httpSession = request.getSession();
+				httpSession.setAttribute("name", tName);
+				httpSession.setAttribute("id", id);
+				httpSession.setAttribute("pw", pw);	
+				System.out.println("sucess!!!" );
+				response.sendRedirect("loginResult.jsp");					
+			} else {
+				System.out.println("fail!!!" );						
+			}	*/	
+//			PrintWriter prn = response.getWriter();
+//			prn.println("id = " + id + "pw = " + pw +  " <br>");			
+		}		
+		response.sendRedirect("login.html");	 
+	} catch (Exception e) {
+		System.out.println("Exception ==> " + e);
+	} finally {
+		try {
 			if (resultSet != null) resultSet.close();
 			if (statement != null) statement.close();
 			if (connection != null) connection.close(); // 할당된 인스턴스의 메모리를 free하게 함
-			} catch (Exception e) {
+		} catch (Exception e) {
 			System.out.println("SQL Exception ==> " + e);
-			}
-		}	
-	}
+		}
+	}  
+}
 
 }
