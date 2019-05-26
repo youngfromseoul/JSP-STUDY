@@ -107,14 +107,14 @@ public class ModifyOk extends HttpServlet {
 	}
 
 	private boolean pwConfirm() {
-		boolean rs = false;
+		boolean rs = true;  // false -> true; 패스워드 수정
 		String sessionPw = (String) httpSession.getAttribute("pw");
 		System.out.println("pw = " + pw + "session = " + sessionPw);
-		if (sessionPw.equals(pw)) {
+		/* if (sessionPw.equals(pw)) {
 			rs = true;
 		} else {
 			rs = false;
-		}
+		} */
 		return rs;
 	}
 }
