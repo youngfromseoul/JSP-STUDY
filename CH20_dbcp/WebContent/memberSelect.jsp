@@ -1,6 +1,6 @@
 <%@page import="java.util.ArrayList"%>
-<%@page import="com.hykim.daodto.MemberDao"%>
-<%@page import="com.hykim.daodto.MemberDto"%>
+<%@page import="com.hykim.dbcp.MemberDao"%>
+<%@page import="com.hykim.dbcp.MemberDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>

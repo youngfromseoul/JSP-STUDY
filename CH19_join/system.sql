@@ -1,1 +1,1 @@
-select * from membership2;
+select * from membership;
